@@ -1,6 +1,12 @@
+import itertools
+
+
 # Étape 1
 
 # Chaque variable permet de lire leur base de donnée
+from multiprocessing.sharedctypes import Value
+
+
 bdd_lion = open("data1.txt", "r", encoding='utf8')
 bdd_lion_read = bdd_lion.read()
 bdd_rocket = open("data2.txt", "r", encoding='utf8')
@@ -15,10 +21,10 @@ def user_menu():
     print("1 pour Afficher les statistiques")
     print("2 pour Sauvegarder les statistiques")
     print("3 pour Afficher l'équipe avec les coureurs les plus similaires")
-    print("4 pour Ajouter une faute à une équipe.")
+    print("4 pour Ajouter une faute à une équipe")
     return 
 
-#user_menu()
+user_menu()
 
 choix = int(input("Veuillez faire votre choix: "))
 
@@ -33,17 +39,22 @@ choix = int(input("Veuillez faire votre choix: "))
 def afficher_stats():
 
     if choix == 1:
-        #fait choix 1
-
-        print("sksks")
+        bdd_lion = open("data1.txt", "r")
+        lines = bdd_lion.readlines()
+        lines.sort()
+        for line in lines:
+            bdd_lion = open("data1.txt", "a")
+            bdd_lion.write(line)
+        bdd_lion.close()
+        print(bdd_lion)
     elif choix == 2:
-        #fait choix 2
+        # Sauvegarder les statistiques
         print("jdjd")
     elif choix == 3:
-        # fait chox 3
+        # Afficher l'équipe avec les coureurs les plus similaires
         print("jddj")
     elif choix == 4:
-        # fait choix 4
+        # Ajouter une faute à une équipe
         print("sjs")
     else:
         print("Mauvais choix")
