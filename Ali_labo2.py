@@ -22,13 +22,19 @@ def user_menu():
 
 choix = int(input("Veuillez faire votre choix: "))
 
-
 # Étape 3
+
+# Vous devez afficher les statistiques suivantes :
+
+#   * Équipe ayant le coureur le plus rapide et le temps de ce dernier.
+#   * Temps moyens par équipe présenté en ordre croissant, donc de l'équipe la plus rapide à la plus lente. 
+#     Vous devez y afficher le nom de l'équipe et leur temps de course moyen.
 
 def afficher_stats():
 
     if choix == 1:
         #fait choix 1
+
         print("sksks")
     elif choix == 2:
         #fait choix 2
