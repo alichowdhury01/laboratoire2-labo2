@@ -1,10 +1,6 @@
-Lion = {
-    'Jacob Bellevue': 7.23,
-    'Dany Bedard': 3.29,
-    'Francis Bond': 11.11,
-    'Bob Bobby': 02.01,
-    'Jack Allard': 8
-}
-
-
-
+Équipe B
+8.25
+9.00
+9.28
+7.9
+11

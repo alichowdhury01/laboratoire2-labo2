@@ -1,9 +1,6 @@
-Aigle = {
-    'Momo Ali': 03.21
-    'Oberon Beaudoin': 1.20
-    'Loic France': 14.15
-    'Marie Sen': 2.09
-    'Jessica Jean': 10
-}
-
-
+Équipe C
+7.11
+6.50
+11.12
+8
+13

@@ -1,18 +1,9 @@
-import itertools
-
-
 # Étape 1
 
 # Chaque variable permet de lire leur base de donnée
-from multiprocessing.sharedctypes import Value
 
 
-bdd_lion = open("data1.txt", "r", encoding='utf8')
-bdd_lion_read = bdd_lion.read()
-bdd_rocket = open("data2.txt", "r", encoding='utf8')
-bdd_rocket_read = bdd_rocket.read()
-bdd_aigle = open("data3.txt", "r", encoding='utf8')
-bdd_aigle_read = bdd_aigle.read()
+
 
 # Étape 2
 
@@ -38,15 +29,14 @@ choix = int(input("Veuillez faire votre choix: "))
 
 def afficher_stats():
 
-    if choix == 1:
-        bdd_lion = open("data1.txt", "r")
-        lines = bdd_lion.readlines()
-        lines.sort()
-        for line in lines:
-            bdd_lion = open("data1.txt", "a")
-            bdd_lion.write(line)
-        bdd_lion.close()
-        print(bdd_lion)
+    f1 = open("data1.txt", "r", encoding='utf8')
+    #f2 = open("data2.txt", "r", encoding='utf8')
+    #f3 = open("data3.txt", "r", encoding='utf8')
+
+    
+
+    if choix == 1:     
+        
     elif choix == 2:
         # Sauvegarder les statistiques
         print("jdjd")
