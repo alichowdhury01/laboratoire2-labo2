@@ -3,6 +3,7 @@ from copy import deepcopy
 from encodings import utf_8
 
 
+
 # Étape 1
 
 # Chaque variable permet de lire leur base de donnée
@@ -18,16 +19,19 @@ def  lecture_fichier():
     read_line1[3] = float(read_line1[3])
     read_line1[4] = float(read_line1[4])
     read_line1[5] = float(read_line1[5])
+
     read_line2[1] = float(read_line2[1])
     read_line2[2] = float(read_line2[2])
     read_line2[3] = float(read_line2[3])
     read_line2[4] = float(read_line2[4])
     read_line2[5] = float(read_line2[5])
+
     read_line3[1] = float(read_line3[1])
     read_line3[2] = float(read_line3[2])
     read_line3[3] = float(read_line3[3])
     read_line3[4] = float(read_line3[4])
     read_line3[5] = float(read_line3[5])
+    
     liste = read_line1, read_line2, read_line3
     f1.close()
     f2.close()
@@ -61,7 +65,11 @@ def execution_user(l_equipe):
     choix = int(input("Veuillez faire votre choix: "))
 
     if choix == 1:
-        
+        min4 = min(liste_equipe[0:5])
+        min2 = min(liste_equipe[1:5])
+        min3 = min(liste_equipe[2:5])
+        totalmin = min([min2]), min([min4])
+        print(min(totalmin[1:5]))
     elif choix == 2:
         # Sauvegarder les statistiques
         print("jdjd")
