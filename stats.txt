@@ -1,0 +1,3 @@
+CMoyennes des equipes: 
+['9.086: Equipe B', '9.146: Equipe C', '9.176: Equipe A']1 faute pour toutes les équipes
+1 faute pour toutes les équipes
