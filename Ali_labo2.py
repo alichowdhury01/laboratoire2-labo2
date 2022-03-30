@@ -94,6 +94,7 @@ def execution_user(arg):
         equipeB_moyenne = sum(liste_equipe['B']) / len(liste_equipe['B'])
         equipeC_moyenne = sum(liste_equipe['C']) / len(liste_equipe['C'])
 
+        # Calcul pour écart-type pour chaque
         pow_data_avg_equipeA = [(pow(liste_equipe['A'][0] - equipeA_moyenne, 2)), \
                                 (pow(liste_equipe['A'][1] - equipeA_moyenne, 2)), \
                                 (pow(liste_equipe['A'][2] - equipeA_moyenne, 2)), \
@@ -113,7 +114,6 @@ def execution_user(arg):
                                 (pow(liste_equipe['C'][2] - equipeC_moyenne, 2)), \
                                 (pow(liste_equipe['C'][3] - equipeC_moyenne, 2)), \
                                 (pow(liste_equipe['C'][4] - equipeC_moyenne, 2))]
-
         calcul_ecart_type_equipeC = math.sqrt(sum(pow_data_avg_equipeC)/5) 
 
         dicotionnaire_ecart_type_equipe = {'A' : calcul_ecart_type_equipeA, 'B' : calcul_ecart_type_equipeB, 'C' : calcul_ecart_type_equipeC}
@@ -125,6 +125,7 @@ def execution_user(arg):
 
     elif choix == 4:
 
+        # Ouverte de fichir pour une ajout d'information
         ajout_faute = open("stats.txt", "a", encoding='utf8')
 
         selection_equipe_faute = int(input("Liste des équipes: \n" \
@@ -147,4 +148,7 @@ def execution_user(arg):
         print("Mauvais choix")
     return
 
+# Exécution de fonction avec variable comme argument.
+# La variable donne accès à des données d'un dictionnaire
+# À l'aide d'une Fonction
 execution_user(liste_equipe)
