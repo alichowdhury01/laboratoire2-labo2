@@ -52,11 +52,19 @@ def  lecture_fichier():
 # afin d'accèder les données
 liste_equipe = lecture_fichier()
 
+# Permet d'aller chercher la valeur le plus petit
+meilleur_temps = min(liste_equipe, key=liste_equipe.get)
+
+# Moyenne de chaque équipe, on fait la sum des données diviser par le
+# len qui est le nombre de ligne qui est le nombre de de données
+equipeA_moyenne = f"{sum(liste_equipe['A']) / len(liste_equipe['A']):.3f}"
+equipeB_moyenne = f"{sum(liste_equipe['B']) / len(liste_equipe['B']):.3f}"
+equipeC_moyenne = f"{sum(liste_equipe['C']) / len(liste_equipe['C']):.3f}"
+
+liste_moyenne = [equipeA_moyenne + ": Equipe A", equipeB_moyenne + ": Equipe B", equipeC_moyenne + ": Equipe C"]
+liste_sorted = sorted(liste_moyenne)
 
 def execution_user(arg):
-    
-    # Permet d'aller chercher la valeur le plus petit
-    meilleur_temps = min(liste_equipe, key=liste_equipe.get)
 
     print("1 pour Afficher les statistiques\n"
           "2 pour Sauvegarder les statistiques\n"
@@ -65,37 +73,21 @@ def execution_user(arg):
 
     choix = int(input("Veuillez faire votre choix: "))
 
-
     if choix == 1:
-
-        equipeA_moyenne = f"{sum(liste_equipe['A']) / len(liste_equipe['A']):.3f}"
-        equipeB_moyenne = f"{sum(liste_equipe['B']) / len(liste_equipe['B']):.3f}"
-        equipeC_moyenne = f"{sum(liste_equipe['C']) / len(liste_equipe['C']):.3f}"
-
-        liste_moyenne = [equipeA_moyenne + ": Equipe A", equipeB_moyenne + ": Equipe B", \
-                         equipeC_moyenne + ": Equipe C"]
-
-        print(f"\nLe meilleur coureur est dans l'équipe {meilleur_temps} et son temps"
+      
+        print(f"\nLe meilleur coureur est dans l'équipe {meilleur_temps} et son temps" \
               f" étant de {min(liste_equipe[meilleur_temps])}\n")          
-        print(f"Moyenne des equipes: {sorted(liste_moyenne)}")
+        print(f"Moyenne des equipes: {(liste_sorted)}")
 
     elif choix == 2:
-
-        equipeA_moyenne = f"{sum(liste_equipe['A']) / len(liste_equipe['A']):.3f}"
-        equipeB_moyenne = f"{sum(liste_equipe['B']) / len(liste_equipe['B']):.3f}"
-        equipeC_moyenne = f"{sum(liste_equipe['C']) / len(liste_equipe['C']):.3f}"
-
-        liste_moyenne = [equipeA_moyenne + ": Equipe A", equipeB_moyenne + ": Equipe B", \
-                         equipeC_moyenne + ": Equipe C"]
-        liste_moyenne_croissant= sorted(liste_moyenne)
-
+        
+        # Permet de sauvegarder les données dans un fichier externe
         sauvegarde_stat = open("stats.txt", "w", encoding='utf8')
         sauvegarde_stat.write(f"{meilleur_temps}")
-        sauvegarde_stat.write(f"Moyennes des equipes: \n"
-                              f"{liste_moyenne_croissant}")
+        sauvegarde_stat.write(f"Moyennes des equipes:\n" \
+                              f"{liste_sorted}")
         sauvegarde_stat.close()
-
-        
+     
     elif choix == 3:
 
         equipeA_moyenne = sum(liste_equipe['A']) / len(liste_equipe['A'])
@@ -121,6 +113,7 @@ def execution_user(arg):
                                 (pow(liste_equipe['C'][2] - equipeC_moyenne, 2)), \
                                 (pow(liste_equipe['C'][3] - equipeC_moyenne, 2)), \
                                 (pow(liste_equipe['C'][4] - equipeC_moyenne, 2))]
+
         calcul_ecart_type_equipeC = math.sqrt(sum(pow_data_avg_equipeC)/5) 
 
         dicotionnaire_ecart_type_equipe = {'A' : calcul_ecart_type_equipeA, 'B' : calcul_ecart_type_equipeB, 'C' : calcul_ecart_type_equipeC}
@@ -134,12 +127,12 @@ def execution_user(arg):
 
         ajout_faute = open("stats.txt", "a", encoding='utf8')
 
-        selection_equipe_faute = int(input("Liste des équipes: \n"
-                                           "1 pour Équipe A \n"
-                                           "2 pour Équipe B \n"
-                                           "3 pour Équipe C \n"
-                                           "4 pour Toutes les équipes \n"
-                                           "Choisissez pour qui voulez-vous attrier une faute?:"))
+        selection_equipe_faute = int(input("Liste des équipes: \n" \
+                                           "1 pour Équipe A \n" \
+                                           "2 pour Équipe B \n" \
+                                           "3 pour Équipe C \n" \
+                                           "4 pour Toutes les équipes \n" \
+                                           "Choisissez pour qui vous voulez attribuer une faute?:"))
         if selection_equipe_faute == 1:
             ajout_faute.write("\n1 faute pour l'équipe A")
         elif selection_equipe_faute == 2:
